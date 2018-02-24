@@ -1,0 +1,62 @@
+var userInput = 'Bomb';
+userInput = userInput.toLowerCase();
+function getComputerChoice(){
+  var randomNumber = Math.floor(Math.random() * 3);
+  switch(randomNumber) {
+    case 0:
+      return 'rock';
+      
+    case 1:
+      return 'paper';
+      
+    case 2:
+      return 'scissors';
+      
+    
+                     }
+}
+function determineWinner(userChoice, computerChoice){
+  if (userChoice === computerChoice) {
+    return 'the game is a tie';
+  }
+  if (userChoice === 'rock') {
+    if(computerChoice === 'paper'){
+       return 'computer wins, paper beats rock';
+       }
+    else {
+      return 'user wins, rock beats scissors';
+    }
+  }
+  if (userChoice==='paper') {
+    if(computerChoice==='rock'){
+      return'user wins, paper beats rock';
+    }
+    else {
+      return 'computer wins, scissors beat paper';
+    }
+  }
+  if(userChoice==='scissors'){
+    if(computerChoice==='rock'){
+      return'computer wins, rock beats scissors';
+    }
+    else {
+      return 'user wins, scissors beats paper';
+    }
+  }
+  if(userChoice==='bomb'){
+    if(computerChoice==='rock'){
+       return 'you lose, bomb beats everything';
+       }
+    else {
+      return 'you lose, bomb beats everything';
+    }
+  }
+       }
+function playGame(){
+  var userChoice=userInput;
+  var computerChoice=getComputerChoice();
+  console.log('You threw: ' + userChoice);
+  console.log('The computer threw: '+ computerChoice);
+  console.log(determineWinner(userChoice, computerChoice));
+}
+playGame();
